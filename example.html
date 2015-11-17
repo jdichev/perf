@@ -1,0 +1,37 @@
+<html>
+<head>
+    <script src="performance.js"></script>
+    <script>
+        window.time.interactive = true;
+        window.onload = function () {
+            var table = '<table>';
+            for (var i = 0; i < 10000; i++) {
+                table += '<tr>' +
+                '<td>' +
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' +
+                '</td>' +
+                '<td>' +
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' +
+                '</td>' +
+                '<td>' +
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' +
+                '</td>' +
+                '<tr/>';
+            }
+            table += '</table>';
+
+            window.time.start('innerHTML');
+            document.getElementById('content').innerHTML = table;
+            window.time.stop('innerHTML');
+
+            window.time.start('next tick');
+            setTimeout(function () {
+                window.time.stop('next tick');
+            }, 0);
+        }
+    </script>
+</head>
+<body>
+<div id="content"></div>
+</body>
+</html>
